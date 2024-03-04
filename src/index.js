@@ -2,6 +2,7 @@ const express=require('express')
 const bodyParser=require('body-parser')
 const {PORT}=require('./config/serverConfig')
 const {sendBasicEmail}=require('./services/email-service')
+const cron=require('node-cron')
 
 const setupAndStartServer=()=>{
     const app=express();
@@ -12,12 +13,16 @@ const setupAndStartServer=()=>{
         console.log(`Server started on PORT ${PORT}`)
     })
 
-    sendBasicEmail(
-        'drj09003@gmail.com',
-        'drj09003@gmail.com',
-        'Testing',
-        'reminder service done successfully'
-    )
+    // sendBasicEmail(
+    //     'drj09003@gmail.com',
+    //     'drj09003@gmail.com',
+    //     'Testing',
+    //     'reminder service done successfully'
+    // )
+
+    // cron.schedule('*/1 * * * *',()=>{
+    //     console.log('running in every minutes')
+    // })
 }
 
 setupAndStartServer()
