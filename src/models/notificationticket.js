@@ -1,5 +1,6 @@
 'use strict';
 const {
+  Sequelize,
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
@@ -29,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     status: {
       type: Sequelize.ENUM,
       allowNull: false,
-      values:['SUCCESS','PENDING','FAILED']
+      values:['SUCCESS','PENDING','FAILED'],
+      defaultValue:'PENDING'
     },
     notificationTime: {
       type: Sequelize.DATE,
